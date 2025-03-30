@@ -1,12 +1,15 @@
 'use server'
 
 import { cookies } from 'next/headers'
-import { COOKIE_NAME, defaultLanguage, Language } from '@/libs/i18n/config'
+
+import { COOKIE_NAME, type Language, defaultLanguage } from './config'
 
 export async function getCurrentLanguage() {
 	const cookiesStore = await cookies()
 
-	return cookiesStore.get(COOKIE_NAME)?.value ?? defaultLanguage
+	const language = cookiesStore.get(COOKIE_NAME)?.value ?? defaultLanguage
+
+	return language
 }
 
 export async function setLanguage(language: Language) {
