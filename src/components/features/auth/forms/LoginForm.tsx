@@ -9,30 +9,22 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/common/Button'
-import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel
-} from '@/components/ui/common/Form'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/common/Form'
 import { Input } from '@/components/ui/common/Input'
-import {
-	InputOTP,
-	InputOTPGroup,
-	InputOTPSlot
-} from '@/components/ui/common/InputOTP'
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/common/InputOTP'
 
 import { useLoginUserMutation } from '@/graphql/generated/output'
 
 
-import { type TypeLoginSchema, loginSchema } from '@/schemas/auth/login.schema'
+import { loginSchema, type TypeLoginSchema } from '@/schemas/auth/login.schema'
 
 import { AuthWrapper } from '../AuthWrapper'
+import { useAuth } from '@/hooks/useAuth'
 
 export function LoginForm() {
 	const t = useTranslations(`auth.login`)
+
+	const { auth } = useAuth()
 
 	const router = useRouter()
 
@@ -51,6 +43,7 @@ export function LoginForm() {
 			if (data.loginUser.message) {
 				setIsShowTwoFactor(true)
 			} else {
+				auth()
 				toast.success(t(`successMessage`))
 				router.push(`/dashboard/settings`)
 			}

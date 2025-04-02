@@ -9,9 +9,12 @@ import { toast } from 'sonner'
 import { useVerifyAccountMutation } from '@/graphql/generated/output'
 
 import { AuthWrapper } from '../AuthWrapper'
+import { useAuth } from '@/hooks/useAuth'
 
 export function VerifyAccountForm() {
 	const t = useTranslations(`auth.verify`)
+
+	const { auth } = useAuth()
 
 	const router = useRouter()
 	const searchParams = useSearchParams()
@@ -20,6 +23,7 @@ export function VerifyAccountForm() {
 
 	const [verify] = useVerifyAccountMutation({
 		onCompleted() {
+			auth()
 			toast.success(t(`successMessage`))
 			router.push(`/dashboard/settings`)
 		},
