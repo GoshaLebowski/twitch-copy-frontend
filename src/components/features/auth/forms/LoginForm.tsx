@@ -32,7 +32,7 @@ import { type TypeLoginSchema, loginSchema } from '@/schemas/auth/login.schema'
 import { AuthWrapper } from '../AuthWrapper'
 
 export function LoginForm() {
-	const t = useTranslations('auth.login')
+	const t = useTranslations(`auth.login`)
 
 	const router = useRouter()
 
@@ -51,8 +51,8 @@ export function LoginForm() {
 			if (data.loginUser.message) {
 				setIsShowTwoFactor(true)
 			} else {
-				toast.success(t('successMessage'))
-				router.push('/dashboard/settings')
+				toast.success(t(`successMessage`))
+				router.push(`/dashboard/settings`)
 			}
 		},
 		onError() {
@@ -68,22 +68,22 @@ export function LoginForm() {
 
 	return (
 		<AuthWrapper
-			heading={t('heading')}
-			backButtonLabel={t('backButtonLabel')}
-			backButtonHref='/account/create'
+			heading={t(`heading`)}
+			backButtonLabel={t(`backButtonLabel`)}
+			backButtonHref={`/account/create`}
 		>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className='grid gap-y-3'
+					className={`grid gap-y-3`}
 				>
 					{isShowTwoFactor ? (
 						<FormField
 							control={form.control}
-							name='pin'
+							name={`pin`}
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>{t('pinLabel')}</FormLabel>
+									<FormLabel>{t(`pinLabel`)}</FormLabel>
 									<FormControl>
 										<InputOTP maxLength={6} {...field}>
 											<InputOTPGroup>
@@ -97,7 +97,7 @@ export function LoginForm() {
 										</InputOTP>
 									</FormControl>
 									<FormDescription>
-										{t('pinDescription')}
+										{t(`pinDescription`)}
 									</FormDescription>
 								</FormItem>
 							)}
@@ -106,49 +106,49 @@ export function LoginForm() {
 						<>
 							<FormField
 								control={form.control}
-								name='login'
+								name={`login`}
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>{t('loginLabel')}</FormLabel>
+										<FormLabel>{t(`loginLabel`)}</FormLabel>
 										<FormControl>
 											<Input
-												placeholder='johndoe'
+												placeholder={`johndoe`}
 												disabled={isLoadingLogin}
 												{...field}
 											/>
 										</FormControl>
 										<FormDescription>
-											{t('loginDescription')}
+											{t(`loginDescription`)}
 										</FormDescription>
 									</FormItem>
 								)}
 							/>
 							<FormField
 								control={form.control}
-								name='password'
+								name={`password`}
 								render={({ field }) => (
 									<FormItem>
-										<div className='flex items-center justify-between'>
+										<div className={`flex items-center justify-between`}>
 											<FormLabel>
-												{t('passwordLabel')}
+												{t(`passwordLabel`)}
 											</FormLabel>
 											<Link
-												href='/account/recovery'
-												className='ml-auto inline-block text-sm'
+												href={`/account/recovery`}
+												className={`ml-auto inline-block text-sm`}
 											>
-												{t('forgotPassword')}
+												{t(`forgotPassword`)}
 											</Link>
 										</div>
 										<FormControl>
 											<Input
-												placeholder='********'
-												type='password'
+												placeholder={`********`}
+												type={`password`}
 												disabled={isLoadingLogin}
 												{...field}
 											/>
 										</FormControl>
 										<FormDescription>
-											{t('passwordDescription')}
+											{t(`passwordDescription`)}
 										</FormDescription>
 									</FormItem>
 								)}
@@ -156,10 +156,10 @@ export function LoginForm() {
 						</>
 					)}
 					<Button
-						className='mt-2 w-full'
+						className={`mt-2 w-full`}
 						disabled={!isValid || isLoadingLogin}
 					>
-						{t('submitButton')}
+						{t(`submitButton`)}
 					</Button>
 				</form>
 			</Form>
