@@ -2,7 +2,7 @@
 
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import * as React from 'react'
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef } from 'react'
+import { type ComponentPropsWithoutRef, type ComponentRef, forwardRef } from 'react'
 
 import { cn } from '@/utils/tw-merge'
 
