@@ -1,11 +1,12 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation'
 
 
 
 import { DashboardNav } from '@/components/layout/sidebar/DashboardNav';
 import { SidebarHeader } from '@/components/layout/sidebar/SidebarHeader';
+import { UserNav } from '@/components/layout/sidebar/UserNav';
 
 
 
@@ -34,7 +35,7 @@ export function Sidebar() {
 			)}
 		>
 			<SidebarHeader />
-			{isDashboardPage ? <DashboardNav /> : 'User Nav'}
+			{isDashboardPage ? <DashboardNav /> : <UserNav />}
 		</aside>
 	)
 }
