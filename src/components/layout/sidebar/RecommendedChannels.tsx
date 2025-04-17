@@ -1,13 +1,26 @@
-'use client'
+'use client';
 
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl';
 
-import { ChannelItem } from '@/components/layout/sidebar/ChannelItem'
-import { Separator } from '@/components/ui/common/Separator'
 
-import { useFindRecommendedChannelsQuery } from '@/graphql/generated/output'
 
-import { useSidebar } from '@/hooks/useSidebar'
+import {
+	ChannelItem,
+	ChannelItemSkeleton
+} from '@/components/layout/sidebar/ChannelItem'
+import { Separator } from '@/components/ui/common/Separator';
+
+
+
+import { useFindRecommendedChannelsQuery } from '@/graphql/generated/output';
+
+
+
+import { useSidebar } from '@/hooks/useSidebar';
+
+
+
+
 
 export function RecommendedChannels() {
 	const t = useTranslations(`layout.sidebar.recommended`)
@@ -29,13 +42,13 @@ export function RecommendedChannels() {
 					{t(`heading`)}
 				</h2>
 			)}
-			{isLoadingRecommended ? (
-				<div></div>
-			) : (
-				channels.map((channel, index) => (
-					<ChannelItem key={index} channel={channel} />
+			{isLoadingRecommended
+				? Array.from({ length: 7 }).map((_, index) => (
+					<ChannelItemSkeleton key={index} />
 				))
-			)}
+				: channels.map((channel, index) => (
+					<ChannelItem key={index} channel={channel} />
+				))}
 		</>
 	)
 }

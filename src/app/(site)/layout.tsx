@@ -2,9 +2,9 @@ import { PropsWithChildren } from 'react';
 
 
 
-import { LayoutContainer } from '@/components/layout/LayoutContainer';
-import { Header } from '@/components/layout/header/Header'
-import { Sidebar } from '@/components/layout/sidebar/Sidebar'
+import { LayoutContainer } from '@/components/layout/LayoutContainer'
+import { Header } from '@/components/layout/header/Header';
+import { Sidebar } from '@/components/layout/sidebar/Sidebar';
 
 
 
