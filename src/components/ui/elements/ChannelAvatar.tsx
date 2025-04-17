@@ -49,7 +49,7 @@ export function ChannelAvatar({ size, channel, isLive }: ChannelAvatarProps) {
 						size === `lg` && `text-2xl`
 					)}
 				>
-					{channel.username?.[0]}
+					{channel.username?.[0].toUpperCase()}
 				</AvatarFallback>
 			</Avatar>
 		</div>
