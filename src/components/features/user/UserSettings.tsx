@@ -1,19 +1,25 @@
-'use client'
+'use client';
 
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl';
 
-import { Skeleton } from '@/components/ui/common/Skeleton'
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger
-} from '@/components/ui/common/Tabs'
-import { Heading } from '@/components/ui/elements/Heading'
 
-import { useDashboardSettings } from '@/hooks/useDashboardSettings'
 
-import ChangeAvatarForm from './profile/ChangeAvatarForm'
+import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm'
+import { Skeleton } from '@/components/ui/common/Skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
+import { Heading } from '@/components/ui/elements/Heading';
+
+
+
+import { useDashboardSettings } from '@/hooks/useDashboardSettings';
+
+
+
+import ChangeAvatarForm from './profile/ChangeAvatarForm';
+
+
+
+
 
 export function UserSettings() {
 	const t = useTranslations(`dashboard.settings`)
@@ -77,6 +83,7 @@ export function UserSettings() {
 									)}
 								/>
 								<ChangeAvatarForm />
+								<ChangeInfoForm />
 							</div>
 						</TabsContent>
 						<TabsContent value={`account`}></TabsContent>
@@ -111,6 +118,7 @@ export function UserSettingsSkeleton() {
 			<Skeleton
 				className={`h-52 rounded-lg border border-border bg-card shadow-sm`}
 			/>
+			<Skeleton className={`h-96 w-full`} />
 		</div>
 	)
 }
