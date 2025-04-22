@@ -289,7 +289,7 @@
 					"createForm": {
 						"heading": "Ссылки на соцсети",
 						"titleLabel": "Название ссылки",
-						"titlePlaceholder": "Youtube",
+						"titlePlaceholder": "Youtube, GitHub, Telegram...",
 						"titleDescription": "Текст ссылки",
 						"urlLabel": "URL ссылки",
 						"urlPlaceholder": "https://github.com/",

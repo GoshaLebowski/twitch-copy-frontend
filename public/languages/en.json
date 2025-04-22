@@ -289,7 +289,7 @@
 					"createForm": {
 						"heading": "Social Media Links",
 						"titleLabel": "Link Title",
-						"titlePlaceholder": "Youtube",
+						"titlePlaceholder": "Youtube, GitHub, Telegram...",
 						"titleDescription": "Link text",
 						"urlLabel": "Link URL",
 						"urlPlaceholder": "https://github.com/TestCoder52",

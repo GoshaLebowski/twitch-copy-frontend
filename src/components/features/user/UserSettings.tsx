@@ -1,10 +1,11 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
 
 
-import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm'
+import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
+import { SocialLinksForm, SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
 import { Skeleton } from '@/components/ui/common/Skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
 import { Heading } from '@/components/ui/elements/Heading';
@@ -84,6 +85,7 @@ export function UserSettings() {
 								/>
 								<ChangeAvatarForm />
 								<ChangeInfoForm />
+								<SocialLinksForm />
 							</div>
 						</TabsContent>
 						<TabsContent value={`account`}></TabsContent>
@@ -119,6 +121,7 @@ export function UserSettingsSkeleton() {
 				className={`h-52 rounded-lg border border-border bg-card shadow-sm`}
 			/>
 			<Skeleton className={`h-96 w-full`} />
+			<SocialLinksFormSkeleton />
 		</div>
 	)
 }

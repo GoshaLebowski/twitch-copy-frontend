@@ -39,16 +39,16 @@ import { type TypeChangeInfoSchema, changeInfoSchema } from '@/schemas/user/chan
 
 
 export function ChangeInfoForm() {
-	const t = useTranslations('dashboard.settings.profile.info')
+	const t = useTranslations(`dashboard.settings.profile.info`)
 
 	const { user, isLoadingProfile, refetch } = useCurrent()
 
 	const form = useForm<TypeChangeInfoSchema>({
 		resolver: zodResolver(changeInfoSchema),
 		values: {
-			username: user?.username ?? '',
-			displayName: user?.displayName ?? '',
-			bio: user?.bio ?? ''
+			username: user?.username ?? ``,
+			displayName: user?.displayName ?? ``,
+			bio: user?.bio ?? ``
 		}
 	})
 
@@ -56,10 +56,10 @@ export function ChangeInfoForm() {
 		{
 			onCompleted() {
 				refetch()
-				toast.success(t('successMessage'))
+				toast.success(t(`successMessage`))
 			},
 			onError() {
-				toast.error(t('errorMessage'))
+				toast.error(t(`errorMessage`))
 			}
 		}
 	)
@@ -73,27 +73,27 @@ export function ChangeInfoForm() {
 	return isLoadingProfile ? (
 		<ChangeInfoFormSkeleton />
 	) : (
-		<FormWrapper heading={t('heading')}>
+		<FormWrapper heading={t(`heading`)}>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className='grid gap-y-3'
+					className={`grid gap-y-3`}
 				>
 					<FormField
 						control={form.control}
-						name='username'
+						name={`username`}
 						render={({ field }) => (
-							<FormItem className='px-5'>
-								<FormLabel>{t('usernameLabel')}</FormLabel>
+							<FormItem className={`px-5`}>
+								<FormLabel>{t(`usernameLabel`)}</FormLabel>
 								<FormControl>
 									<Input
-										placeholder={t('usernamePlaceholder')}
+										placeholder={t(`usernamePlaceholder`)}
 										disabled={isLoadingUpdate}
 										{...field}
 									/>
 								</FormControl>
 								<FormDescription>
-									{t('usernameDescription')}
+									{t(`usernameDescription`)}
 								</FormDescription>
 							</FormItem>
 						)}
@@ -101,21 +101,21 @@ export function ChangeInfoForm() {
 					<Separator />
 					<FormField
 						control={form.control}
-						name='displayName'
+						name={`displayName`}
 						render={({ field }) => (
-							<FormItem className='px-5 pb-3'>
-								<FormLabel>{t('displayNameLabel')}</FormLabel>
+							<FormItem className={`px-5 pb-3`}>
+								<FormLabel>{t(`displayNameLabel`)}</FormLabel>
 								<FormControl>
 									<Input
 										placeholder={t(
-											'displayNamePlaceholder'
+											`displayNamePlaceholder`
 										)}
 										disabled={isLoadingUpdate}
 										{...field}
 									/>
 								</FormControl>
 								<FormDescription>
-									{t('displayNameDescription')}
+									{t(`displayNameDescription`)}
 								</FormDescription>
 							</FormItem>
 						)}
@@ -123,29 +123,29 @@ export function ChangeInfoForm() {
 					<Separator />
 					<FormField
 						control={form.control}
-						name='bio'
+						name={`bio`}
 						render={({ field }) => (
-							<FormItem className='px-5 pb-3'>
-								<FormLabel>{t('bioLabel')}</FormLabel>
+							<FormItem className={`px-5 pb-3`}>
+								<FormLabel>{t(`bioLabel`)}</FormLabel>
 								<FormControl>
 									<Textarea
-										placeholder={t('bioPlaceholder')}
+										placeholder={t(`bioPlaceholder`)}
 										disabled={isLoadingUpdate}
 										{...field}
 									/>
 								</FormControl>
 								<FormDescription>
-									{t('bioDescription')}
+									{t(`bioDescription`)}
 								</FormDescription>
 							</FormItem>
 						)}
 					/>
 					<Separator />
-					<div className='flex justify-end p-5'>
+					<div className={`flex justify-end p-5`}>
 						<Button
 							disabled={!isValid || !isDirty || isLoadingUpdate}
 						>
-							{t('submitButton')}
+							{t(`submitButton`)}
 						</Button>
 					</div>
 				</form>
@@ -155,5 +155,5 @@ export function ChangeInfoForm() {
 }
 
 export function ChangeInfoFormSkeleton() {
-	return <Skeleton className='h-96 w-full' />
+	return <Skeleton className={`h-96 w-full`} />
 }
