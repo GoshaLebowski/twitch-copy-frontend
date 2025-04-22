@@ -129,12 +129,12 @@ export function SocialLinkItem({ socialLink, provided }: SocialLinkItemProps) {
 										<FormItem>
 											<FormControl>
 												<Input
-													placeholder='https://github.com'
+													placeholder={`https://github.com`}
 													disabled={
 														isLoadingUpdate ||
 														isLoadingRemove
 													}
-													className='h-8'
+													className={`h-8`}
 													{...field}
 												/>
 											</FormControl>
