@@ -1,14 +1,24 @@
 'use client';
 
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl';
 
 
 
-import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
-import { SocialLinksForm, SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
-import { Skeleton } from '@/components/ui/common/Skeleton';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
-import { Heading } from '@/components/ui/elements/Heading';
+import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm'
+import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm'
+import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm'
+import {
+	SocialLinksForm,
+	SocialLinksFormSkeleton
+} from '@/components/features/user/profile/social-links-form/SocialLinksForm'
+import { Skeleton } from '@/components/ui/common/Skeleton'
+import {
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger
+} from '@/components/ui/common/Tabs'
+import { Heading } from '@/components/ui/elements/Heading'
 
 
 
@@ -88,7 +98,18 @@ export function UserSettings() {
 								<SocialLinksForm />
 							</div>
 						</TabsContent>
-						<TabsContent value={`account`}></TabsContent>
+						<TabsContent value={`account`}>
+							<div className={`mt-5 space-y-6`}>
+								<Heading
+									title={t(`account.header.heading`)}
+									description={t(
+										`account.header.description`
+									)}
+								/>
+								<ChangeEmailForm />
+								<ChangePasswordForm />
+							</div>
+						</TabsContent>
 						<TabsContent value={`appearance`}></TabsContent>
 						<TabsContent value={`notifications`}></TabsContent>
 						<TabsContent value={'sessions'}></TabsContent>
