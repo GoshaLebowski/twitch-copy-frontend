@@ -4,21 +4,13 @@ import { useTranslations } from 'next-intl';
 
 
 
-import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm'
-import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm'
-import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm'
-import {
-	SocialLinksForm,
-	SocialLinksFormSkeleton
-} from '@/components/features/user/profile/social-links-form/SocialLinksForm'
-import { Skeleton } from '@/components/ui/common/Skeleton'
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger
-} from '@/components/ui/common/Tabs'
-import { Heading } from '@/components/ui/elements/Heading'
+import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm';
+import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm';
+import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
+import { SocialLinksForm, SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
+import { Skeleton } from '@/components/ui/common/Skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
+import { Heading } from '@/components/ui/elements/Heading';
 
 
 
@@ -27,6 +19,7 @@ import { useDashboardSettings } from '@/hooks/useDashboardSettings';
 
 
 import ChangeAvatarForm from './profile/ChangeAvatarForm';
+import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp'
 
 
 
@@ -108,6 +101,13 @@ export function UserSettings() {
 								/>
 								<ChangeEmailForm />
 								<ChangePasswordForm />
+								<Heading
+									title={t(`account.header.securityHeading`)}
+									description={t(
+										`account.header.securityDescription`
+									)}
+								/>
+								<WrapperTotp />
 							</div>
 						</TabsContent>
 						<TabsContent value={`appearance`}></TabsContent>
