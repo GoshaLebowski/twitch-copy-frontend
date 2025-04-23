@@ -20,6 +20,7 @@ import { useDashboardSettings } from '@/hooks/useDashboardSettings';
 
 import ChangeAvatarForm from './profile/ChangeAvatarForm';
 import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp'
+import { DeactivateCard } from '@/components/features/user/account/DeactivateCard'
 
 
 
@@ -108,6 +109,13 @@ export function UserSettings() {
 									)}
 								/>
 								<WrapperTotp />
+								<Heading
+									title={t(`account.header.deactivationHeading`)}
+									description={t(
+										`account.header.deactivationDescription`
+									)}
+								/>
+								<DeactivateCard/>
 							</div>
 						</TabsContent>
 						<TabsContent value={`appearance`}></TabsContent>
