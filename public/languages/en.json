@@ -383,7 +383,8 @@
 					"heading": "Website Language",
 					"description": "Select the language that will be used on the website.",
 					"selectPlaceholder": "Select a language",
-					"successMessage": "The website language has been successfully changed"
+					"successMessage": "The website language has been successfully changed",
+					"errorMessage": "An error occurred when changing the language"
 				},
 				"color": {
 					"heading": "Accent Color",

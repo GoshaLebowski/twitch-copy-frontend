@@ -1,14 +1,27 @@
-import { GeistSans } from 'geist/font/sans'
-import type { Metadata } from 'next'
-import { NextIntlClientProvider } from 'next-intl'
-import { getLocale, getMessages } from 'next-intl/server'
-import React from 'react'
+import { GeistSans } from 'geist/font/sans';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
+import React from 'react';
 
-import { ApolloClientProvider } from '@/providers/ApolloClientProvider'
-import { ThemeProvider } from '@/providers/ThemeProvider'
-import { ToastProvider } from '@/providers/ToastProvider'
+
+
+import { ColorSwitcher } from '@/components/ui/elements/ColorSwitcher';
+
+
+
+import { ApolloClientProvider } from '@/providers/ApolloClientProvider';
+import { ThemeProvider } from '@/providers/ThemeProvider';
+import { ToastProvider } from '@/providers/ToastProvider';
+
+
 
 import '../styles/globals.css'
+import '../styles/theme.css'
+
+
+
+
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -26,6 +39,7 @@ export default async function RootLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body className={GeistSans.variable}>
+				<ColorSwitcher />
 				<ApolloClientProvider>
 					<NextIntlClientProvider messages={messages}>
 						<ThemeProvider

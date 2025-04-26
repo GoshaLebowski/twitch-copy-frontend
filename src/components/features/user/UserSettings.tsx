@@ -4,8 +4,13 @@ import { useTranslations } from 'next-intl';
 
 
 
-import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm';
-import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm';
+import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm'
+import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm'
+import { DeactivateCard } from '@/components/features/user/account/DeactivateCard';
+import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp';
+import { ChangeColorForm } from '@/components/features/user/appearance/ChangeColorForm';
+import { ChangeLanguageForm } from '@/components/features/user/appearance/ChangeLanguageForm';
+import { ChangeThemeForm } from '@/components/features/user/appearance/ChangeThemeForm';
 import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
 import { SocialLinksForm, SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
 import { Skeleton } from '@/components/ui/common/Skeleton';
@@ -19,8 +24,6 @@ import { useDashboardSettings } from '@/hooks/useDashboardSettings';
 
 
 import ChangeAvatarForm from './profile/ChangeAvatarForm';
-import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp'
-import { DeactivateCard } from '@/components/features/user/account/DeactivateCard'
 
 
 
@@ -32,7 +35,7 @@ export function UserSettings() {
 	const { isDefaultValue, setIsTabs, isHydrated } = useDashboardSettings()
 
 	return (
-		<div className={`lg:px-1`}>
+		<div className={`lg:px-10`}>
 			{!isHydrated ? (
 				<UserSettingsSkeleton />
 			) : (
@@ -110,15 +113,29 @@ export function UserSettings() {
 								/>
 								<WrapperTotp />
 								<Heading
-									title={t(`account.header.deactivationHeading`)}
+									title={t(
+										`account.header.deactivationHeading`
+									)}
 									description={t(
 										`account.header.deactivationDescription`
 									)}
 								/>
-								<DeactivateCard/>
+								<DeactivateCard />
 							</div>
 						</TabsContent>
-						<TabsContent value={`appearance`}></TabsContent>
+						<TabsContent value={`appearance`}>
+							<div className={`mt-5 space-y-6`}>
+								<Heading
+									title={t('appearance.header.heading')}
+									description={t(
+										'appearance.header.description'
+									)}
+								/>
+								<ChangeThemeForm />
+								<ChangeLanguageForm />
+								<ChangeColorForm />
+							</div>
+						</TabsContent>
 						<TabsContent value={`notifications`}></TabsContent>
 						<TabsContent value={'sessions'}></TabsContent>
 					</Tabs>
