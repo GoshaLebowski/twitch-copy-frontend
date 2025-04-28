@@ -1,22 +1,31 @@
 'use client';
 
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl';
 
 
 
-import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm';
-import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm';
-import { DeactivateCard } from '@/components/features/user/account/DeactivateCard';
-import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp';
-import { ChangeColorForm } from '@/components/features/user/appearance/ChangeColorForm';
-import { ChangeLanguageForm } from '@/components/features/user/appearance/ChangeLanguageForm';
-import { ChangeThemeForm } from '@/components/features/user/appearance/ChangeThemeForm';
-import { ChangeNotificationsSettingsForm } from '@/components/features/user/notifications/ChangeNotificationsSettingsForm';
-import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
-import { SocialLinksForm, SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
-import { Skeleton } from '@/components/ui/common/Skeleton';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
-import { Heading } from '@/components/ui/elements/Heading';
+import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm'
+import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm'
+import { DeactivateCard } from '@/components/features/user/account/DeactivateCard'
+import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp'
+import { ChangeColorForm } from '@/components/features/user/appearance/ChangeColorForm'
+import { ChangeLanguageForm } from '@/components/features/user/appearance/ChangeLanguageForm'
+import { ChangeThemeForm } from '@/components/features/user/appearance/ChangeThemeForm'
+import { ChangeNotificationsSettingsForm } from '@/components/features/user/notifications/ChangeNotificationsSettingsForm'
+import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm'
+import {
+	SocialLinksForm,
+	SocialLinksFormSkeleton
+} from '@/components/features/user/profile/social-links-form/SocialLinksForm'
+import { SessionsList } from '@/components/features/user/sessions/SessionsList'
+import { Skeleton } from '@/components/ui/common/Skeleton'
+import {
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger
+} from '@/components/ui/common/Tabs'
+import { Heading } from '@/components/ui/elements/Heading'
 
 
 
@@ -148,7 +157,17 @@ export function UserSettings() {
 								<ChangeNotificationsSettingsForm />
 							</div>
 						</TabsContent>
-						<TabsContent value={'sessions'}></TabsContent>
+						<TabsContent value={'sessions'}>
+							<div className={`mt-5 space-y-6`}>
+								<Heading
+									title={t(`sessions.header.heading`)}
+									description={t(
+										`sessions.header.description`
+									)}
+								/>
+								<SessionsList />
+							</div>
+						</TabsContent>
 					</Tabs>
 				</>
 			)}
