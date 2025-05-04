@@ -1,33 +1,38 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 import {
 	useClearSessionCookieMutation,
-	useFindProfileQuery
-} from '@/graphql/generated/output'
+	useFindProfileQuery,
+} from '@/graphql/generated/output';
 
-import { useAuth } from './useAuth'
+import { useAuth } from './useAuth';
 
 export function useCurrent() {
-	const { isAuthenticated, exit } = useAuth()
+	const { isAuthenticated, exit } = useAuth();
 
-	const { data, loading, refetch, error } = useFindProfileQuery({
-		skip: !isAuthenticated
-	})
+	const {
+		data,
+		loading: isLoadingProfile,
+		refetch,
+		error,
+	} = useFindProfileQuery({
+		skip: !isAuthenticated,
+	});
 
-	const [clear] = useClearSessionCookieMutation()
+	const [clearSessionCookie] = useClearSessionCookieMutation();
 
 	useEffect(() => {
-		if (error) {
-			if (isAuthenticated) {
-				clear()
-			}
-			exit()
+		if (!error) return;
+
+		if (isAuthenticated) {
+			clearSessionCookie();
 		}
-	}, [isAuthenticated, exit, clear])
+		exit();
+	}, [error, isAuthenticated, clearSessionCookie, exit]);
 
 	return {
 		user: data?.findProfile,
-		isLoadingProfile: loading,
-		refetch
-	}
+		isLoadingProfile,
+		refetch,
+	};
 }
