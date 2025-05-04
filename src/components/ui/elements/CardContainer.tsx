@@ -8,12 +8,17 @@ import { Card } from '@/components/ui/common/Card';
 
 
 
+import { cn } from '@/utils/tw-merge';
+
+
+
 
 
 interface CardContainerProps {
 	heading: string
-	description: string
+	description?: string
 	Icon?: IconType | LucideIcon
+	isRightContentFull?: boolean
 	rightContent?: ReactNode
 }
 
@@ -21,6 +26,7 @@ export function CardContainer({
 	heading,
 	rightContent,
 	Icon,
+	isRightContentFull,
 	description,
 	children
 }: PropsWithChildren<CardContainerProps>) {
@@ -37,14 +43,20 @@ export function CardContainer({
 						<h2 className={`font-semibold tracking-wide`}>
 							{heading}
 						</h2>
-						<p
-							className={`max-w-4xl text-sm text-muted-foreground`}
-						>
-							{description}
-						</p>
+						{description && (
+							<p
+								className={`max-w-4xl text-sm text-muted-foreground`}
+							>
+								{description}
+							</p>
+						)}
 					</div>
 				</div>
-				{rightContent && <div>{rightContent}</div>}
+				{rightContent && (
+					<div className={cn(isRightContentFull && `ml-8 w-full`)}>
+						{rightContent}
+					</div>
+				)}
 			</div>
 			{children && <div className={`mt-4`}>{children}</div>}
 		</Card>

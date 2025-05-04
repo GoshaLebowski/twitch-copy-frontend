@@ -4,28 +4,20 @@ import { useTranslations } from 'next-intl';
 
 
 
-import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm'
-import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm'
-import { DeactivateCard } from '@/components/features/user/account/DeactivateCard'
-import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp'
-import { ChangeColorForm } from '@/components/features/user/appearance/ChangeColorForm'
-import { ChangeLanguageForm } from '@/components/features/user/appearance/ChangeLanguageForm'
-import { ChangeThemeForm } from '@/components/features/user/appearance/ChangeThemeForm'
-import { ChangeNotificationsSettingsForm } from '@/components/features/user/notifications/ChangeNotificationsSettingsForm'
-import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm'
-import {
-	SocialLinksForm,
-	SocialLinksFormSkeleton
-} from '@/components/features/user/profile/social-links-form/SocialLinksForm'
-import { SessionsList } from '@/components/features/user/sessions/SessionsList'
-import { Skeleton } from '@/components/ui/common/Skeleton'
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger
-} from '@/components/ui/common/Tabs'
-import { Heading } from '@/components/ui/elements/Heading'
+import { ChangeEmailForm } from '@/components/features/user/account/ChangeEmailForm';
+import { ChangePasswordForm } from '@/components/features/user/account/ChangePasswordForm';
+import { DeactivateCard } from '@/components/features/user/account/DeactivateCard';
+import { WrapperTotp } from '@/components/features/user/account/totp/WrapperTotp';
+import { ChangeColorForm } from '@/components/features/user/appearance/ChangeColorForm';
+import { ChangeLanguageForm } from '@/components/features/user/appearance/ChangeLanguageForm';
+import { ChangeThemeForm } from '@/components/features/user/appearance/ChangeThemeForm';
+import { ChangeNotificationsSettingsForm } from '@/components/features/user/notifications/ChangeNotificationsSettingsForm';
+import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
+import { SocialLinksForm } from '@/components/features/user/profile/social-links-form/SocialLinksForm'
+import { SessionsList } from '@/components/features/user/sessions/SessionsList';
+import { UserSettingsSkeleton } from '@/components/layout/skeleton/dashboard/user/userSettings.skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
+import { Heading } from '@/components/ui/elements/Heading';
 
 
 
@@ -171,33 +163,6 @@ export function UserSettings() {
 					</Tabs>
 				</>
 			)}
-		</div>
-	)
-}
-
-export function UserSettingsSkeleton() {
-	return (
-		<div className={`space-y-6`}>
-			<div className={`space-y-4`}>
-				<Skeleton className={`h-8 w-[190px]`} />
-				<Skeleton className={`h-4 w-[250px]`} />
-			</div>
-			<div className={`flex max-w-2xl grid-cols-5 space-x-2`}>
-				<Skeleton className={`h-9 w-full`} />
-				<Skeleton className={`h-9 w-full`} />
-				<Skeleton className={`h-9 w-full`} />
-				<Skeleton className={`h-9 w-full`} />
-				<Skeleton className={`h-9 w-full`} />
-			</div>
-			<div className={`space-y-4`}>
-				<Skeleton className={`h-7 w-[120px]`} />
-				<Skeleton className={`h-4 w-[290px]`} />
-			</div>
-			<Skeleton
-				className={`h-52 rounded-lg border border-border bg-card shadow-sm`}
-			/>
-			<Skeleton className={`h-96 w-full`} />
-			<SocialLinksFormSkeleton />
 		</div>
 	)
 }

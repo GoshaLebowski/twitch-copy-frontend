@@ -72,21 +72,21 @@ export function ChangeLanguageForm() {
 
 	return (
 		<CardContainer
-			heading={t('heading')}
-			description={t('description')}
+			heading={t(`heading`)}
+			description={t(`description`)}
 			rightContent={
 				<Form {...form}>
 					<FormField
 						control={form.control}
-						name='language'
+						name={`language`}
 						render={({ field }) => (
 							<Select
 								onValueChange={handleLanguageChange}
 								value={field.value}
 							>
-								<SelectTrigger className='w-[180px]'>
+								<SelectTrigger className={`w-[180px]`}>
 									<SelectValue
-										placeholder={t('selectPlaceholder')}
+										placeholder={t(`selectPlaceholder`)}
 									/>
 								</SelectTrigger>
 								<SelectContent>
