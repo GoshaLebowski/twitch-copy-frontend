@@ -4,10 +4,10 @@ import { useTranslations } from 'next-intl';
 
 
 
-import { StreamKey } from '@/components/features/keys/settings/forms/StreamKey';
-import { StreamUrl } from '@/components/features/keys/settings/forms/StreamURL';
-import { KeysSettingsSkeleton } from '@/components/layout/skeleton/dashboard/keys/keysSettings.skeleton'
-import { Heading } from '@/components/ui/elements/Heading'
+import { StreamKey } from '@/components/features/keys/settings/forms/StreamKey'
+import { StreamUrl } from '@/components/features/keys/settings/forms/StreamURL'
+import { KeysSettingsSkeleton } from '@/components/layout/skeleton/dashboard/keys/KeysSettings.skeleton'
+import { Heading } from '@/components/ui/elements/Heading';
 import { ToggleCardSkeleton } from '@/components/ui/elements/ToggleCard';
 
 

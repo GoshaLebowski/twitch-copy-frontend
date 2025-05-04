@@ -11,7 +11,7 @@ import {
 } from '@/graphql/generated/output'
 
 import { SessionItem } from './SessionItem'
-import { UserSettingsSkeleton } from '@/components/layout/skeleton/dashboard/user/userSettings.skeleton'
+import { UserSettingsSkeleton } from '@/components/layout/skeleton/dashboard/user/UserSettings.skeleton'
 
 export function SessionsList() {
 	const t = useTranslations(`dashboard.settings.sessions`)
