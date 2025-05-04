@@ -1,5 +1,5 @@
 import { SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
-import { HeadingSkeleton } from '@/components/layout/skeleton/dashboard/heading.skeleton'
+import { HeaderSkeleton } from '@/components/layout/skeleton/dashboard/Header.skeleton'
 import { Skeleton } from '@/components/ui/common/Skeleton';
 
 
@@ -9,7 +9,7 @@ import { Skeleton } from '@/components/ui/common/Skeleton';
 export function UserSettingsSkeleton() {
 	return (
 		<div className={`space-y-6`}>
-			<HeadingSkeleton />
+			<HeaderSkeleton />
 			<div className={`flex max-w-2xl grid-cols-5 space-x-2`}>
 				<Skeleton className={`h-9 w-full`} />
 				<Skeleton className={`h-9 w-full`} />

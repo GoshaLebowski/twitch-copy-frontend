@@ -15,7 +15,6 @@ import { ChangeNotificationsSettingsForm } from '@/components/features/user/noti
 import { ChangeInfoForm } from '@/components/features/user/profile/ChangeInfoForm';
 import { SocialLinksForm } from '@/components/features/user/profile/social-links-form/SocialLinksForm'
 import { SessionsList } from '@/components/features/user/sessions/SessionsList';
-import { UserSettingsSkeleton } from '@/components/layout/skeleton/dashboard/user/userSettings.skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/common/Tabs';
 import { Heading } from '@/components/ui/elements/Heading';
 
@@ -26,6 +25,8 @@ import { useDashboardSettings } from '@/hooks/useDashboardSettings';
 
 
 import ChangeAvatarForm from './profile/ChangeAvatarForm';
+import { UserSettingsSkeleton } from '@/components/layout/skeleton/dashboard/user/UserSettings.skeleton'
+
 
 
 
