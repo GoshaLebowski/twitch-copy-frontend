@@ -5,7 +5,7 @@ import { DataTableSkeleton } from '@/components/ui/elements/DataTable'
 
 
 
-export function FollowerSettingsSkeleton() {
+export function SponsorSettingsSkeleton() {
 	return (
 		<div className={`space-y-6`}>
 			<HeaderSkeleton />
