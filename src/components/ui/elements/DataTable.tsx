@@ -13,8 +13,8 @@ import {
 	TableRow
 } from '@/components/ui/common/Table'
 import { useTranslations } from 'next-intl'
-import { Card } from '@/components/ui/common/Card'
 import { Loader } from 'lucide-react'
+import { Skeleton } from '@/components/ui/common/Skeleton'
 
 
 
@@ -95,9 +95,9 @@ export function DataTable<TData, TValue>({
 export function DataTableSkeleton() {
 	return (
 		<div className={`mx-auto mb-10 w-full max-w-screen-2xl`}>
-			<Card className={`mt-6 flex h-[500px] w-full items-center justify-center`}>
+			<Skeleton className={`mt-6 flex h-[500px] w-full items-center justify-center`}>
 				<Loader className={`size-8 animate-spin text-muted-foreground`} />
-			</Card>
+			</Skeleton>
 		</div>
 	)
 }
