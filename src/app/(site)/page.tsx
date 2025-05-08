@@ -3,6 +3,8 @@ import { FindRandomStreamsDocument, FindRandomStreamsQuery } from '@/graphql/gen
 
 
 import { SERVER_URL } from '@/libs/constants/url.constants';
+import { StreamsList } from '@/components/features/stream/list/StreamsList'
+import { getTranslations } from 'next-intl/server'
 
 
 
@@ -36,9 +38,11 @@ async function findRandomStreams() {
 }
 
 export default async function HomePage() {
+	const t = await getTranslations('home')
+
 	const {streams} = await findRandomStreams();
 
 	return <div className={`space-y-10`}>
-		{JSON.stringify(streams, null, 2)}
+		<StreamsList streams={streams} heading={t(`streamsHeading`)}/>
 	</div>
 }
