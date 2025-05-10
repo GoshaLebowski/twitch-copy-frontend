@@ -1,7 +1,8 @@
 'use client';
 
 import { StreamCard } from '@/components/features/stream/list/StreamCard'
-import { Heading } from '@/components/ui/elements/Heading'
+import { EmptyState } from '@/components/ui/elements/EmptyState'
+import { Heading } from '@/components/ui/elements/Heading';
 
 
 
@@ -29,6 +30,6 @@ export function StreamsList({ heading, streams }: StreamsListProps) {
 			</div>
 		</>
 	) : (
-		<div>Not found</div>
+		<EmptyState />
 	)
 }
