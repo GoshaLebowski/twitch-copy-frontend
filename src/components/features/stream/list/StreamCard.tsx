@@ -37,7 +37,7 @@ export function StreamCard({ stream }: StreamsCardProps) {
 						{stream.user.isVerified && <ChannelVerified size={`sm`} />}
 					</h2>
 					{stream.category && (
-						<Link href={`/category/${stream.category.slug}`} className={`text-muted-foreground`}>
+						<Link href={`/categories/${stream.category.slug}`} className={`text-muted-foreground`}>
 							{stream.category.title}
 						</Link>
 					)}

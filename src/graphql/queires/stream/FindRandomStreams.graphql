@@ -1,6 +1,5 @@
 query FindRandomStreams {
     findRandomStreams {
-        id
         title
         thumbnailUrl
         isLive
