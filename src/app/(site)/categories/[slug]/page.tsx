@@ -1,5 +1,7 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
+
 
 import { CategoryOverview } from '@/components/features/category/overview/CategoryOverview'
 
@@ -8,9 +10,17 @@ import {
 	type FindCategoryBySlugQuery
 } from '@/graphql/generated/output'
 
-import { SERVER_URL } from '@/libs/constants/url.constants'
 
-import { getMediaSource } from '@/utils/get-media-source'
+
+import { SERVER_URL } from '@/libs/constants/url.constants';
+
+
+
+import { getMediaSource } from '@/utils/get-media-source';
+
+
+
+
 
 async function findCategoryBySlug(params: { slug: string }) {
 	try {
