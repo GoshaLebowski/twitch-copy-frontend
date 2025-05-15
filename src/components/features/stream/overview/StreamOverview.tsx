@@ -3,15 +3,22 @@
 import { LiveKitRoom } from '@livekit/components-react'
 
 import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
+import { useStreamToken } from '@/hooks/useStreamToken'
 
 interface StreamOverviewProps {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
 }
 
 export function StreamOverview({ channel }: StreamOverviewProps) {
+	const {identity, token, name} = useStreamToken(channel.id)
+
+	if (!token || !name || !identity) {
+		return <div>Loading...</div>
+	}
+
 	return (
 		<LiveKitRoom
-			token={``}
+			token={token}
 			serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_WS_URL}
 			className={`mx-auto grid max-w-screen-xl grid-cols-1 gap-6 lg:grid-cols-7`}
 		>
