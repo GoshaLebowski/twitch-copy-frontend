@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 
 
 export function EmptyState() {
-	const t = useTranslations(`dashboard.emptyState`)
+	const t = useTranslations(`components.emptyState`)
 
 	return (
 		<div

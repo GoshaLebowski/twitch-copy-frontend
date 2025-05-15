@@ -1,4 +1,4 @@
-import { HeaderSkeleton } from '@/components/layout/skeleton/dashboard/Header.skeleton';
+import { HeaderSkeleton } from '@/components/layout/skeleton/Header.skeleton';
 import { ToggleCardSkeleton } from '@/components/ui/elements/ToggleCard'
 
 

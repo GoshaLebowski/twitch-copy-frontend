@@ -1,5 +1,5 @@
 import { SocialLinksFormSkeleton } from '@/components/features/user/profile/social-links-form/SocialLinksForm';
-import { HeaderSkeleton } from '@/components/layout/skeleton/dashboard/Header.skeleton'
+import { HeaderSkeleton } from '@/components/layout/skeleton/Header.skeleton'
 import { Skeleton } from '@/components/ui/common/Skeleton';
 
 
