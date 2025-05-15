@@ -1,4 +1,4 @@
-import { HeaderSkeleton } from '@/components/layout/skeleton/dashboard/Header.skeleton'
+import { HeaderSkeleton } from '@/components/layout/skeleton/Header.skeleton'
 import { DataTableSkeleton } from '@/components/ui/elements/DataTable'
 
 export function SponsorshipPlanSkeleton() {
