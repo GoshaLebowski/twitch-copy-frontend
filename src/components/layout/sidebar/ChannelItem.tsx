@@ -37,7 +37,7 @@ export function ChannelItem({ channel }: ChannelItemProps) {
 
 	const { isCollapsed } = useSidebar()
 
-	const isActive = pathname === `${channel.username}`
+	const isActive = pathname === `/${channel.username}`
 
 	return isCollapsed ? (
 		<Hint label={channel.username} side={`right`} asChild>
