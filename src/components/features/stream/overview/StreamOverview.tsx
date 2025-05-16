@@ -1,19 +1,32 @@
-'use client'
+'use client';
 
-import { LiveKitRoom } from '@livekit/components-react'
+import { LiveKitRoom } from '@livekit/components-react';
 
-import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
-import { useStreamToken } from '@/hooks/useStreamToken'
+
+
+import { StreamVideo, StreamVideoSkeleton } from '@/components/features/stream/overview/player/StreamVideo'
+
+
+
+import type { FindChannelByUsernameQuery } from '@/graphql/generated/output';
+
+
+
+import { useStreamToken } from '@/hooks/useStreamToken';
+
+
+
+
 
 interface StreamOverviewProps {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
 }
 
 export function StreamOverview({ channel }: StreamOverviewProps) {
-	const {identity, token, name} = useStreamToken(channel.id)
+	const { identity, token, name } = useStreamToken(channel.id)
 
 	if (!token || !name || !identity) {
-		return <div>Loading...</div>
+		return <StreamOverviewSkeleton/>
 	}
 
 	return (
@@ -22,16 +35,29 @@ export function StreamOverview({ channel }: StreamOverviewProps) {
 			serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_WS_URL}
 			className={`mx-auto grid max-w-screen-xl grid-cols-1 gap-6 lg:grid-cols-7`}
 		>
-			<div
-				className={`order-1 col-span-1 flex flex-col lg:col-span-5`}
-			>
-				Player
+			<div className={`order-1 col-span-1 flex flex-col lg:col-span-5`}>
+				<StreamVideo channel={channel} />
 			</div>
 			<div
-				className={`order-2 col-span-1 flex w-80 flex-col space-y-6 lg:col-span-2`}
+				className={`order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2`}
 			>
 				Chat
 			</div>
 		</LiveKitRoom>
+	)
+}
+
+export function StreamOverviewSkeleton() {
+	return (
+		<div className={`mx-auto grid max-w-screen-xl grid-cols-1 gap-6 lg:grid-cols-7`}>
+			<div className={`order-1 col-span-1 flex flex-col lg:col-span-5`}>
+				<StreamVideoSkeleton/>
+			</div>
+			<div
+				className={`order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2`}
+			>
+
+			</div>
+		</div>
 	)
 }
