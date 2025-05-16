@@ -4,10 +4,13 @@ import { useTranslations } from 'use-intl';
 
 
 
+import { StreamActions } from '@/components/features/stream/overview/info/StreamActions';
 import { ChannelAvatar } from '@/components/ui/elements/ChannelAvatar';
-import { ChannelVerified } from '@/components/ui/elements/ChannelVerified'
+import { ChannelVerified } from '@/components/ui/elements/ChannelVerified';
 
-import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
+
+
+import type { FindChannelByUsernameQuery } from '@/graphql/generated/output';
 
 
 
@@ -48,15 +51,22 @@ export function StreamInfo({ channel }: StreamInfoProps) {
 							{channel.isVerified && <ChannelVerified />}
 						</h2>
 						{channel.stream.isLive ? (
-							<div className={`flex items-center gap-x-1 text-xs font-semibold text-rose-500`}>
-								<User className={`size-4 `} />
+							<div
+								className={`flex items-center gap-x-1 text-xs font-semibold text-rose-500`}
+							>
+								<User className={`size-4`} />
 								{participantCount} {t(`viewers`)}
 							</div>
 						) : (
-							<p className={`text-xs font-semibold text-muted-foreground`}>{t(`offline`)}</p>
+							<p
+								className={`text-xs font-semibold text-muted-foreground`}
+							>
+								{t(`offline`)}
+							</p>
 						)}
 					</div>
 				</div>
+				<StreamActions channel={channel} />
 			</div>
 		</div>
 	)
