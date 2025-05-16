@@ -7,7 +7,12 @@ query FindChannelByUsername($username: String!) {
         avatar
         isVerified
         stream {
+            title
             thumbnailUrl
+            isLive
+            category {
+                title
+            }
         }
     }
 }

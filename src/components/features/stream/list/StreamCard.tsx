@@ -43,7 +43,7 @@ export function StreamCard({ stream }: StreamsCardProps) {
 						className={`flex items-center gap-x-2 font-semibold text-foreground`}
 					>
 						{stream.user.username}
-						{stream.user.isVerified && <ChannelVerified size={`sm`} />}
+						{stream.user.isVerified && <ChannelVerified />}
 					</h2>
 					{stream.category && (
 						<Link href={`/categories/${stream.category.slug}`} className={`text-muted-foreground`}>
