@@ -89,7 +89,7 @@
 				"followButton": "Отслеживать",
 				"successFollowMessage": "Вы успешно подписались",
 				"errorFollowMessage": "Ошибка при подписке",
-				"successUnfollowMessage": "Вы успешно описались",
+				"successUnfollowMessage": "Вы успешно отписались",
 				"errorUnfollowMessage": "Ошибка при описке"
 			},
 			"support": {
