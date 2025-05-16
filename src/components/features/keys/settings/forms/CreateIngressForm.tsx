@@ -52,8 +52,8 @@ export function CreateIngressForm() {
 			refetch()
 			toast.success(t('successMessage'))
 		},
-		onError() {
-			toast.error(t('errorMessage'))
+		onError(error) {
+			toast.error(error.message)
 		}
 	})
 

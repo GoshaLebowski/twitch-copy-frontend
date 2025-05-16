@@ -70,7 +70,7 @@ export function ChannelItem({ channel }: ChannelItemProps) {
 					isLive={channel.stream.isLive}
 				/>
 				<h2 className={`truncate pl-3 pr-2`}>{channel.username}</h2>
-				{channel.isVerified && <ChannelVerified size={`sm`} />}
+				{channel.isVerified && <ChannelVerified />}
 				{channel.stream.isLive && (
 					<div className={`absolute right-5`}>
 						<LiveBadge />
