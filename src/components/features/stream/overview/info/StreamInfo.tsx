@@ -1,11 +1,16 @@
-import { ChannelAvatar } from '@/components/ui/elements/ChannelAvatar'
+import { useParticipants } from '@livekit/components-react';
+import { User } from 'lucide-react';
+import { useTranslations } from 'use-intl';
 
+
+
+import { ChannelAvatar } from '@/components/ui/elements/ChannelAvatar';
+import { ChannelVerified } from '@/components/ui/elements/ChannelVerified'
 
 import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
-import { ChannelVerified } from '@/components/ui/elements/ChannelVerified'
-import { User } from 'lucide-react'
-import { useTranslations } from 'use-intl'
-import { useParticipants } from '@livekit/components-react'
+
+
+
 
 
 interface StreamInfoProps {
