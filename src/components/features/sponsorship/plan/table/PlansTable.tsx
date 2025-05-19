@@ -57,7 +57,7 @@ export function PlansTable() {
 			toast.success(t('columns.successMessage'))
 		},
 		onError() {
-			toast.error(t('columns.errorMessage'))
+			toast.error(t('columns.removeMessage'))
 		}
 	})
 
