@@ -14,6 +14,7 @@ import type { FindChannelByUsernameQuery } from '@/graphql/generated/output';
 
 import { useStreamToken } from '@/hooks/useStreamToken';
 import { StreamInfo, StreamInfoSkeleton } from '@/components/features/stream/overview/info/StreamInfo'
+import { AboutChannel, AboutChannelSkeleton } from '@/components/features/stream/overview/info/AboutChannel'
 
 
 
@@ -34,11 +35,12 @@ export function StreamOverview({ channel }: StreamOverviewProps) {
 		<LiveKitRoom
 			token={token}
 			serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_WS_URL}
-			className={`mx-auto grid max-w-screen-xl grid-cols-1 gap-6 lg:grid-cols-7`}
+			className={`mx-auto grid grid-cols-1 gap-6 lg:grid-cols-7`}
 		>
 			<div className={`order-1 col-span-1 flex flex-col lg:col-span-5`}>
 				<StreamVideo channel={channel} />
 				<StreamInfo channel={channel}/>
+				<AboutChannel channel={channel}/>
 			</div>
 			<div
 				className={`order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2`}
@@ -51,10 +53,11 @@ export function StreamOverview({ channel }: StreamOverviewProps) {
 
 export function StreamOverviewSkeleton() {
 	return (
-		<div className={`mx-auto grid max-w-screen-xl grid-cols-1 gap-6 lg:grid-cols-7`}>
+		<div className={`mx-auto grid grid-cols-1 gap-6 lg:grid-cols-7`}>
 			<div className={`order-1 col-span-1 flex flex-col lg:col-span-5`}>
 				<StreamVideoSkeleton />
 				<StreamInfoSkeleton />
+				<AboutChannelSkeleton/>
 			</div>
 			<div className={`order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2`}>
 			</div>
