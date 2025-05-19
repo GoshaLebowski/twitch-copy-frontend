@@ -30,7 +30,7 @@ export function LayoutContainer({ children }: PropsWithChildren<unknown>) {
 		<main
 			className={cn(
 				`mt-[75px] flex-1 p-8`,
-				isCollapsed ? `ml-16` : `lg:ml-64`
+				isCollapsed ? `ml-16` : `lg:ml-[17rem]`
 			)}
 		>
 			{children}
