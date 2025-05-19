@@ -15,6 +15,7 @@ import type { FindChannelByUsernameQuery } from '@/graphql/generated/output';
 import { useStreamToken } from '@/hooks/useStreamToken';
 import { StreamInfo, StreamInfoSkeleton } from '@/components/features/stream/overview/info/StreamInfo'
 import { AboutChannel, AboutChannelSkeleton } from '@/components/features/stream/overview/info/AboutChannel'
+import { ChannelSponsor } from '@/components/features/stream/overview/info/ChannelSponsor'
 
 
 
@@ -41,6 +42,7 @@ export function StreamOverview({ channel }: StreamOverviewProps) {
 				<StreamVideo channel={channel} />
 				<StreamInfo channel={channel}/>
 				<AboutChannel channel={channel}/>
+				<ChannelSponsor channel={channel}/>
 			</div>
 			<div
 				className={`order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2`}
