@@ -22,7 +22,7 @@ export function StreamInfo({ channel }: StreamInfoProps) {
 
 	return (
 		<div className={`space-y-5`}>
-			<h1 className={`text-xl font-semibold`}>
+			<h1 className={`lg:text-2xl md:text-xl font-semibold`}>
 				{channel.stream.title}{' '}
 				{channel.stream.category &&
 					` | ${channel.stream.category.title}`}
