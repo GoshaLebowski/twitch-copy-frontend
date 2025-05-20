@@ -1,16 +1,24 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+
 
 import type { FindRandomCategoriesQuery } from '@/graphql/generated/output'
 
 import { useSidebar } from '@/hooks/useSidebar'
 
-import { getRandomColor } from '@/utils/color'
-import { getMediaSource } from '@/utils/get-media-source'
-import { cn } from '@/utils/tw-merge'
+
+
+import { getRandomColor } from '@/utils/color';
+import { getMediaSource } from '@/utils/get-media-source';
+import { cn } from '@/utils/tw-merge';
+
+
+
+
 
 interface CategoryCardProps {
 	category: FindRandomCategoriesQuery['findRandomCategories'][0]
@@ -37,10 +45,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
 				)}
 			>
 				<div
-					className={`absolute inset-0 flex items-center justify-center rounded-xl opacity-0 transition-opacity group-hover:opacity-100`}
-					style={{
-						backgroundColor: randomColor
-					}}
+					className={`absolute inset-0 flex items-center justify-center rounded-xl bg-primary opacity-0 transition-opacity group-hover:opacity-100`}
 				/>
 				<Image
 					src={getMediaSource(category.thumbnailUrl)}

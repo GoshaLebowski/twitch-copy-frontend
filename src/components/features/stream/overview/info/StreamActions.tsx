@@ -22,7 +22,7 @@ export function StreamActions({ channel }: StreamActionsProps) {
 			className={`items-center space-x-3`}
 		>
 			<FollowButton channel={channel} />
-			{channel.isVerified && channel.sponsorshipPlans.length && (
+			{channel.isVerified && channel.sponsorshipPlans?.length > 0 && (
 				<SupportButton channel={channel} />
 			)}
 			<StreamSettings channel={channel}/>

@@ -1,16 +1,26 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-import { Card } from '@/components/ui/common/Card'
+
+
+import { Card } from '@/components/ui/common/Card';
 import { ChannelAvatar } from '@/components/ui/elements/ChannelAvatar'
 import { LiveBadge } from '@/components/ui/elements/LiveBadge'
 
-import type { FindProfileQuery } from '@/graphql/generated/output'
 
-import { getRandomColor } from '@/utils/color'
-import { getMediaSource } from '@/utils/get-media-source'
+
+import type { FindProfileQuery } from '@/graphql/generated/output';
+
+
+
+import { getRandomColor } from '@/utils/color';
+import { getMediaSource } from '@/utils/get-media-source';
+
+
+
+
 
 interface StreamThumbnailProps {
 	url: string | null | undefined
@@ -29,12 +39,11 @@ export function StreamThumbnail({ url, isLive, user }: StreamThumbnailProps) {
 	}, [])
 
 	return (
-		<div className={`group relative aspect-video cursor-pointer rounded-xl`}>
+		<div
+			className={`group relative aspect-video cursor-pointer rounded-xl`}
+		>
 			<div
-				className={`absolute inset-0 flex items-center justify-center rounded-xl opacity-0 transition-opacity group-hover:opacity-100`}
-				style={{
-					backgroundColor: randomColor
-				}}
+				className={`absolute inset-0 flex items-center justify-center rounded-xl bg-primary opacity-0 transition-opacity group-hover:opacity-100`}
 			/>
 			{url ? (
 				<Image
