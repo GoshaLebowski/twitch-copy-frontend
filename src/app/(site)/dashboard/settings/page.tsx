@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 
 
 import { UserSettings } from '@/components/features/user/UserSettings';
+import { NO_INDEX_PAGE } from '@/libs/constants/seo.constants'
 
 
 
@@ -15,10 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	return {
 		title: t(`heading`),
 		description: t(`description`),
-		robots: {
-			index: false,
-			follow: false
-		}
+		...NO_INDEX_PAGE
 	}
 }
 
