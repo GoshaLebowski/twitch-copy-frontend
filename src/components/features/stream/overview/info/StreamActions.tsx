@@ -1,9 +1,16 @@
-import { FollowButton } from '@/components/features/stream/overview/info/FollowButton'
+import { FollowButton } from '@/components/features/stream/overview/info/FollowButton';
 import { ShareActions } from '@/components/features/stream/overview/info/ShareActions'
-import { SupportButton } from '@/components/features/stream/overview/info/SupportButton'
+import { SupportButton } from '@/components/features/stream/overview/info/SupportButton';
+import { StreamSettings } from '@/components/features/stream/settings/StreamSettings';
+import { Skeleton } from '@/components/ui/common/Skeleton';
 
-import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
-import { Skeleton } from '@/components/ui/common/Skeleton'
+
+
+import type { FindChannelByUsernameQuery } from '@/graphql/generated/output';
+
+
+
+
 
 interface StreamActionsProps {
 	channel: FindChannelByUsernameQuery[`findChannelByUsername`]
@@ -12,12 +19,13 @@ interface StreamActionsProps {
 export function StreamActions({ channel }: StreamActionsProps) {
 	return (
 		<div
-			className={`mt-5 items-center space-x-3 space-y-4 lg:mt-0 lg:flex lg:space-y-0`}
+			className={`items-center space-x-3`}
 		>
 			<FollowButton channel={channel} />
 			{channel.isVerified && channel.sponsorshipPlans.length && (
 				<SupportButton channel={channel} />
 			)}
+			<StreamSettings channel={channel}/>
 			<ShareActions channel={channel} />
 		</div>
 	)
